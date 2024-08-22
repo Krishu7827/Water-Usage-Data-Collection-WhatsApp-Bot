@@ -30,9 +30,19 @@ cd Water-Usage-Data-Collection-WhatsApp-Bot
 Create a `.env` file in the root of your project and add the following environment variables:
 
 ```bash
+# Twilio Account SID - Your unique identifier for the Twilio account
 Account_Sid=your_account_sid
+
+# Twilio Auth Token - Your Twilio authentication token (keep this secure!)
 Auth_Token=your_auth_token
+
+# Twilio WhatsApp Number - The number provided by Twilio for sending WhatsApp messages
 Sender_Phone_Number=whatsapp:+14155238886  # Replace with your Twilio WhatsApp number
+
+# Receiver Phone Number - The test number where you want to receive messages from the bot.
+# Make sure to include the country code. For example, for India, use the format +91XXXXXXXXXX
+Reciver_Phone_Number=+919999999999  # Replace with your test number
+
 ```
 ## 4. Install Dependencies:
 ```bash
