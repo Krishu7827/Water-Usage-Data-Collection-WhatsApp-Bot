@@ -21,13 +21,13 @@ cd your-repository-folder
 ```
 
 ## 2. Twilio Configuration
-### 1. Log in to your Twilio account and navigate to the WhatsApp Sandbox section.
-### 2. Copy your Account SID and Auth Token.
-### 3. Get your WhatsApp Sandbox Number from the sandbox settings.
-### 4. Join the sandbox by sending the provided code to the WhatsApp number.
+1. Log in to your Twilio account and navigate to the WhatsApp Sandbox section.
+2. Copy your Account SID and Auth Token.
+3. Get your WhatsApp Sandbox Number from the sandbox settings.
+4. Join the sandbox by sending the provided code to the WhatsApp number.
 
 ## 3. Create a .env File
-### Create a `.env` file in the root of your project and add the following environment variables:
+Create a `.env` file in the root of your project and add the following environment variables:
 
 ```bash
 Account_Sid=your_account_sid
