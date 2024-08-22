@@ -46,28 +46,30 @@ npm run dev
 
 ## 6. Set Up ngrok (Windows)
 **6.1 Install ngrok (Windows)**
-Open PowerShell as an administrator and run:
+- Open PowerShell as an administrator and run:
 
 ```bash
 choco install ngrok
 ```
 
 **6.2 Configure ngrok**
-After installation, run the following command to add your ngrok authentication token:
+- After installation, run the following command to add your ngrok authentication token:
 
 ```bash
 ngrok config add-authtoken your_ngrok_auth_token
 ```
 **6.3 Start ngrok**
-Start an ngrok session to expose your local server:
+- Start an ngrok session to expose your local server:
 ```bash
 ngrok http 9090  
 ```
 You will receive a public URL from ngrok (e.g., `https://0a71-2401-4900-820c-fe50-5f9-f9c5-6baf-2b29.ngrok-free.app`).
 
+#### Note: `For other OS visit on` [Install ngrok](https://dashboard.ngrok.com/get-started/setup/)
+
 ## 7. Configure Twilio Webhook
 1. Go to your Twilio WhatsApp Sandbox settings.
-2. In the `When a message comes in section`, paste the ngrok URL followed by /Whatsapp/Webhook (e.g., `https://your-ngrok-url/Whatsapp/Webhook`).
+2. In the `When a message comes` in section, paste the ngrok URL followed by /Whatsapp/Webhook (e.g., `https://your-ngrok-url/Whatsapp/Webhook`).
 3. This webhook URL allows Twilio to forward incoming WhatsApp messages to your server.
 
 ## Usage 
@@ -78,7 +80,7 @@ Please send today's Water Usage Data.
 
 ## Endpoints
 - **POST /Whatsapp/Webhook:**
-  - This endpoint receives messages from WhatsApp.
+   - This endpoint receives messages from WhatsApp.
    - If the message format is `XXX liters` (replace `XXX` with your value), the data will be saved in the Excel sheet, and the bot will respond:
 ```text
 Data received: XXX liters on YYYY-MM-DD
