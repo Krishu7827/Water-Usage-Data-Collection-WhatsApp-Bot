@@ -17,7 +17,7 @@ Before getting started, make sure you have the following installed:
 
 ```bash
 git clone https://github.com/Krishu7827/Water-Usage-Data-Collection-WhatsApp-Bot.git
-cd your-repository-folder
+cd Water-Usage-Data-Collection-WhatsApp-Bot
 ```
 
 ## 2. Twilio Configuration
@@ -34,4 +34,64 @@ Account_Sid=your_account_sid
 Auth_Token=your_auth_token
 Sender_Phone_Number=whatsapp:+14155238886  # Replace with your Twilio WhatsApp number
 ```
+## 4. Install Dependencies:
+```bash
+npm install
+```
+
+## 5. Run the Application:
+```bash
+npm run dev
+```
+
+## 6. Set Up ngrok (Windows)
+**6.1 Install ngrok (Windows)**
+Open PowerShell as an administrator and run:
+
+```bash
+choco install ngrok
+```
+
+**6.2 Configure ngrok**
+After installation, run the following command to add your ngrok authentication token:
+
+```bash
+ngrok config add-authtoken your_ngrok_auth_token
+```
+**6.3 Start ngrok**
+Start an ngrok session to expose your local server:
+```bash
+ngrok http 9090  
+```
+You will receive a public URL from ngrok (e.g., `https://0a71-2401-4900-820c-fe50-5f9-f9c5-6baf-2b29.ngrok-free.app`).
+
+## 7. Configure Twilio Webhook
+1. Go to your Twilio WhatsApp Sandbox settings.
+2. In the `When a message comes in section`, paste the ngrok URL followed by /Whatsapp/Webhook (e.g., `https://your-ngrok-url/Whatsapp/Webhook`).
+3. This webhook URL allows Twilio to forward incoming WhatsApp messages to your server.
+
+## Usage 
+Once everything is set up, the bot will send a message every 5 minutes asking for the day's water usage data:
+```text
+Please send today's Water Usage Data.
+```
+
+## Endpoints
+- **POST /Whatsapp/Webhook:**
+  - This endpoint receives messages from WhatsApp.
+   - If the message format is `XXX liters` (replace `XXX` with your value), the data will be saved in the Excel sheet, and the bot will respond:
+```text
+Data received: XXX liters on YYYY-MM-DD
+```
+   - If the message is in an incorrect format, the bot will respond:
+```text
+Please input the water usage in the format 'XXX liters'.
+```
+
+## Deployment
+If you are unable to deploy using ngrok, you can deploy the application on other cloud platforms like AWS or Railway.
+
+## Congratulations! 🎉
+You have successfully set up and deployed your WhatsApp bot for water usage data collection. 
+
 
